@@ -223,4 +223,38 @@ p {
     .bg-gradient {
         background-image: linear-gradient(to bottom right, white, #f9fafb);
     }
+
+    .circle-progress {
+        transition: stroke-dashoffset 0.5s ease;
+    }
+    
+    .circle-container {
+        transition: transform 0.5s ease;
+    }
+
+    .progress-circle {
+        transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+        will-change: transform;
+    }
+
+    .content-panel {
+        transform-origin: center left;
+        will-change: transform, opacity;
+    }
+
+    .direction-arrow {
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    .animate-spin-slow {
+        animation: spin 8s linear infinite;
+    }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
