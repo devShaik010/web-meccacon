@@ -1,65 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #000814;
+  --color-primary-light: #001d3d;
+  --color-primary-dark: #000814;
+  --color-secondary: #ffc300;
+  --color-secondary-light: #ffd60a;
+  --color-secondary-dark: #003566;
+}
 
 @layer base {
   :root {
     --color-primary: #000814;
-    --color-primary-light: #001D3D;
+    --color-primary-light: #001d3d;
     --color-primary-dark: #000814;
-    --color-secondary: #FFC300;
-    --color-secondary-light: #FFD60A;
+    --color-secondary: #ffc300;
+    --color-secondary-light: #ffd60a;
     --color-secondary-dark: #003566;
   }
 
   html {
-    font-family: 'Poppins', system-ui, sans-serif;
+    font-family: "Poppins", system-ui, sans-serif;
   }
 
-h1 {
+  h1 {
     font-size: 2.5rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #1B1711;
-}
+    color: #1b1711;
+  }
 
-h2 {
+  h2 {
     font-size: 2rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     letter-spacing: -0.025em;
-    color: #1B1711;
-}
+    color: #1b1711;
+  }
 
-h3 {
+  h3 {
     font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
-    color: #1B1711;
-}
+    color: #1b1711;
+  }
 
-h4 {
+  h4 {
     font-size: 1.25rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 500;
-    color: #1B1711;
-}
+    color: #1b1711;
+  }
 
-p {
+  p {
     font-size: 1rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 100;
     color: #2a231c;
     line-height: 1.625;
-}
+  }
 
-@media (min-width: 768px) {
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2.25rem; }
-    h3 { font-size: 1.875rem; }
-    h4 { font-size: 1.5rem; }
-}
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 2.25rem;
+    }
+    h3 {
+      font-size: 1.875rem;
+    }
+    h4 {
+      font-size: 1.5rem;
+    }
+  }
 }
 
 @keyframes fadeInDown {
@@ -96,110 +113,110 @@ p {
 }
 
 @layer components {
-    .btn-primary {
-        background-color: #FFC300;
-        color: #000814;
-        font-weight: 500;
-        padding: 0.5rem 1.5rem;
-        border-radius: 0.5rem;
-        transition-property: all;
-        transition-duration: 300ms;
-    }
-    .btn-primary:hover {
-        background-color: #e6b300;
-    }
+  .btn-primary {
+    background-color: #ffc300;
+    color: #000814;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+  .btn-primary:hover {
+    background-color: #e6b300;
+  }
 
-    .btn-outline {
-        border-width: 2px;
-        border-color: #FFC300;
-        color: #FFC300;
-        font-weight: 500;
-        padding: 0.5rem 1.5rem;
-        border-radius: 0.5rem;
-        transition-property: all;
-        transition-duration: 300ms;
-    }
-    .btn-outline:hover {
-        background-color: #FFC300;
-        color: #1B1711;
-    }
+  .btn-outline {
+    border-width: 2px;
+    border-color: #ffc300;
+    color: #ffc300;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+  .btn-outline:hover {
+    background-color: #ffc300;
+    color: #1b1711;
+  }
 
+  .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1b1711;
+    margin-bottom: 1rem;
+  }
+  @media (min-width: 768px) {
     .section-title {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #1B1711;
-        margin-bottom: 1rem;
+      font-size: 2.25rem;
     }
-    @media (min-width: 768px) {
-        .section-title {
-            font-size: 2.25rem;
-        }
-    }
+  }
 
-    .section-subtitle {
-        color: #FFC700;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-    }
+  .section-subtitle {
+    color: #ffc700;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
 
-    .card {
-        background-color: rgb(255, 255, 255);
-        border-radius: 0.75rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        padding: 1.5rem;
-        transition-property: all;
-        transition-duration: 300ms;
-    }
-    .card:hover {
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-        transform: translateY(-0.25rem);
-    }
+  .card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+  .card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.25rem);
+  }
 
-    .icon-wrapper {
-        width: 3rem;
-        height: 3rem;
-        border-radius: 0.5rem;
-        background-color: rgba(255, 199, 0, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #FFC700;
-        transition: all 300ms;
-    }
-    .group:hover .icon-wrapper {
-        background-color: #FFC700;
-        color: white;
-    }
+  .icon-wrapper {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 199, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffc700;
+    transition: all 300ms;
+  }
+  .group:hover .icon-wrapper {
+    background-color: #ffc700;
+    color: white;
+  }
 
-    .link-hover {
-        position: relative;
-    }
-    .link-hover::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 0;
-        background-color: #FFC700;
-        transition: all 300ms;
-    }
-    .link-hover:hover::after {
-        width: 100%;
-    }
+  .link-hover {
+    position: relative;
+  }
+  .link-hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ffc700;
+    transition: all 300ms;
+  }
+  .link-hover:hover::after {
+    width: 100%;
+  }
 
-    .animate-in {
-        animation: slideIn 0.3s ease forwards;
-    }
+  .animate-in {
+    animation: slideIn 0.3s ease forwards;
+  }
 
-    .floating-menu {
-        --stagger-delay: 75ms;
-    }
+  .floating-menu {
+    --stagger-delay: 75ms;
+  }
 
-    .floating-menu-item {
-        transform-origin: center bottom;
-        animation: floatingMenuIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
-    }
+  .floating-menu-item {
+    transform-origin: center bottom;
+    animation: floatingMenuIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+  }
 }
 
 @keyframes floatingMenuIn {
@@ -214,11 +231,11 @@ p {
 }
 
 @layer utilities {
-    .text-gradient {
-        background-clip: text;
-        color: transparent;
-        background-image: linear-gradient(to right, #1B1711, #2a231c);
-    }
+  .text-gradient {
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #1b1711, #2a231c);
+  }
 
     .bg-gradient {
         background-image: linear-gradient(to bottom right, white, #f9fafb);
