@@ -96,10 +96,8 @@ git push origin feature/your-feature-name
 - Tailwind is configured via Vite - no separate config file needed
 - Use global CSS variables for theming (defined in index.css)
 
-## 📄 License
 
-MIT License - see the [LICENSE](LICENSE) file for details
 
 ## 🤝 Contact
 
-For questions or feedback, please reach out to [your-email@example.com]
+For questions or feedback, please reach out to [skabrar.engineer@gmail.com]
