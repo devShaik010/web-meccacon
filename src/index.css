@@ -237,7 +237,7 @@
     background-image: linear-gradient(to right, #1b1711, #2a231c);
   }
 
-  .bg-gradient {
-    background-image: linear-gradient(to bottom right, white, #f9fafb);
-  }
+    .bg-gradient {
+        background-image: linear-gradient(to bottom right, white, #f9fafb);
+    }
 }

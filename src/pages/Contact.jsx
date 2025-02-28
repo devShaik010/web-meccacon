@@ -3,7 +3,7 @@ import img from "@assets/images/pexels-500photos-com-15338-93400.jpg";
 import { cn } from "@utils/cn";
 const Contact = () => {
   return (
-    <div className="border bg-white px-4 py-8 lg:px-12 grid sm:grid-cols-2 md:py-12 place-items-center border-red-500">
+    <div className=" bg-white px-4 py-8 lg:px-12 grid sm:grid-cols-2 md:py-12 place-items-center border-red-500">
       <Form />
       <div className=" w-full h-full hidden sm:flex rounded-xl relative">
         <div
