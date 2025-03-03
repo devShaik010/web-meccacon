@@ -9,7 +9,7 @@ export default function ContetCard({ heading, text, imgSrc = img }) {
       />
       <div className="flex flex-col gap-4 p-4">
         <h4 className="text-white">{heading}</h4>
-        <p className="text-white/60">{text}</p>
+        <p className="text-white/60 text-sm lg:text-base">{text}</p>
       </div>
     </div>
   );
