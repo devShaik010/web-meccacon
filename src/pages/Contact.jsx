@@ -36,7 +36,7 @@ const Contact = () => {
         </div>
         <Accordion items={accordionItems} />
       </div>
-      <div className=" bg-white px-4 py-8 lg:px-12 flex items-center flex-col justify-center md:grid md:grid-cols-2 md:py-12 place-items-center">
+      <div className=" bg-white px-4 py-8 lg:px-12 flex items-center flex-col-reverse md:flex-col justify-center md:grid md:grid-cols-2 md:py-12 place-items-center">
         {/* <Accordion items={accordionItems} /> */}
         <div className="w-full h-full grid place-items-center">
           <div className="w-fit flex flex-col">
