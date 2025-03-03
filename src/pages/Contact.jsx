@@ -1,7 +1,9 @@
-import Form from "@components/ui/ContactForm";
-import img from "@assets/fc.svg";
-import { cn } from "@utils/cn";
-import { Accordion } from "../components/ui/Accordian";
+import fcImg from "@assets/fc.svg";
+import acImg from "@assets/ac.svg";
+
+import { Accordion } from "@components/ui/Accordian";
+import { MapPin } from "lucide-react";
+import { Phone } from "lucide-react";
 const Contact = () => {
   const accordionItems = [
     {
@@ -29,32 +31,43 @@ const Contact = () => {
     <section>
       <div className=" bg-white px-4 py-8 lg:px-12 flex items-center flex-col justify-center md:grid md:grid-cols-2 md:py-12 place-items-center">
         {/* <Form /> */}
-        <div className=" w-2/3  flex rounded-xl relative">
+        <div className=" w-1/2  flex rounded-xl relative">
           {/* <div
           className={cn(
             "top-0 left-0 w-full h-full absolute rounded-xl opacity-100",
             "bg-radial-[at_25%_25%] from-transparent to-primary/50 to-75%"
           )}
         /> */}
-          <img src={img} className="aspect-square w-full rounded-lg " />
+          <img src={fcImg} className="aspect-square w-full rounded-lg " />
         </div>
         <Accordion items={accordionItems} />
       </div>
       <div className=" bg-white px-4 py-8 lg:px-12 flex items-center flex-col justify-center md:grid md:grid-cols-2 md:py-12 place-items-center">
-        <Form />
-        <div className=" w-2/3 flex rounded-xl relative">
-          <div
-            className={cn(
-              "top-0 left-0 w-full h-full absolute rounded-xl opacity-100",
-              "bg-radial-[at_25%_25%] from-transparent to-primary/50 to-75%"
-            )}
-          />
-          <img
-            src={img}
-            className="aspect-square hidden md:block w-full rounded-lg "
-          />
-        </div>
         {/* <Accordion items={accordionItems} /> */}
+        <div className="border w-full h-full grid place-items-center">
+          <div className="w-fit flex flex-col">
+            <h3 className="m-auto w-fit capitalize mb-8">Office Location</h3>
+            <div className="border flex w-fit m-auto p-2 items-start justify-center gap-3">
+              <MapPin className="mt-2" size={20} strokeWidth={1} />
+              <div className="flex w-fit flex-col">
+                <p>Meccacon Private Limited</p>
+                <p>AB HQ, XYZ place</p>
+                <p>500001 Hyderabad</p>
+                <p>Telengana, India</p>
+              </div>
+            </div>
+            <div className="border flex w-full m-auto p-2 gap-3 place-self-start">
+              <div className="flex gap-2 items-center justify-center">
+                <Phone size={18} strokeWidth={1} />
+                <p>+91 0123456789</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className=" w-1/2  flex rounded-xl relative">
+          <img src={acImg} className="aspect-square w-full rounded-lg " />
+        </div>
       </div>
     </section>
   );
