@@ -1,71 +1,38 @@
 import { Timeline } from "@components/ui/Timeline";
-import imgSrc from "@assets/images//mariano-baraldi-a08GO4UMpzw-unsplash.jpg";
+import ContetCard from "@components/ui/ProjectCard";
 export default function TimelineDemo() {
   const data = [
     {
       title: "2025",
       content: (
-        <div className="border border-white/10 p-2 rounded-xl flex flex-col gap-4 lg:flex-row text-white">
-          <img
-            src={imgSrc}
-            className=" aspect-square h-56 rounded-lg object-cover"
-            alt=""
-          />
-          <div className="flex flex-col gap-4 p-4">
-            <h4 className="text-white">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </h4>
-            <p className="text-white/60">
-              Dolore, impedit porro adipisci totam numquam alias nam molestias
-              dolorum perspiciatis similique officia quod inventore commodi
-              fugit corrupti nemo placeat mollitia distinctio.
-            </p>
-          </div>
-        </div>
+        <ContetCard
+          heading={"Lorem ipsum dolor sit amet, consectetur adipisicing elit"}
+          text={
+            " Dolore, impedit porro adipisci totam numquam alias nam molestias\ndolorum perspiciatis similique officia quod inventore commodi\n   fugit corrupti nemo placeat mollitia distinctio"
+          }
+        />
       ),
     },
     {
       title: "2024",
       content: (
-        <div className="border border-white/10 p-2 rounded-xl flex flex-col gap-4 lg:flex-row text-white">
-          <img
-            src={imgSrc}
-            className=" aspect-square h-56 rounded-lg object-cover"
-            alt=""
-          />
-          <div className="flex flex-col gap-4 p-4">
-            <h4 className="text-white">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </h4>
-            <p className="text-white/60">
-              Dolore, impedit porro adipisci totam numquam alias nam molestias
-              dolorum perspiciatis similique officia quod inventore commodi
-              fugit corrupti nemo placeat mollitia distinctio.
-            </p>
-          </div>
-        </div>
+        <ContetCard
+          heading={"Lorem ipsum dolor sit amet, consectetur adipisicing elit"}
+          text={
+            " Dolore, impedit porro adipisci totam numquam alias nam molestias\ndolorum perspiciatis similique officia quod inventore commodi\n   fugit corrupti nemo placeat mollitia distinctio"
+          }
+        />
       ),
     },
     {
       title: "2023",
       content: (
-        <div className="border border-white/10 p-2 rounded-xl flex flex-col gap-4 lg:flex-row text-white">
-          <img
-            src={imgSrc}
-            className=" aspect-square h-56 rounded-lg object-cover"
-            alt=""
-          />
-          <div className="flex flex-col gap-4 p-4">
-            <h4 className="text-white">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit
-            </h4>
-            <p className="text-white/60">
-              Dolore, impedit porro adipisci totam numquam alias nam molestias
-              dolorum perspiciatis similique officia quod inventore commodi
-              fugit corrupti nemo placeat mollitia distinctio.
-            </p>
-          </div>
-        </div>
+        <ContetCard
+          heading={"Lorem ipsum dolor sit amet, consectetur adipisicing elit"}
+          text={
+            " Dolore, impedit porro adipisci totam numquam alias nam molestias\ndolorum perspiciatis similique officia quod inventore commodi\n   fugit corrupti nemo placeat mollitia distinctio"
+          }
+        />
       ),
     },
   ];
