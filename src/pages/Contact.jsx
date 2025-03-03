@@ -1,6 +1,7 @@
 import fcImg from "@assets/fc.svg";
 import acImg from "@assets/ac.svg";
-
+import mcImg from "@assets/mc.svg";
+import Form from "@components/ui/ContactForm";
 import { Accordion } from "@components/ui/Accordian";
 import { MapPin } from "lucide-react";
 import { Phone } from "lucide-react";
@@ -30,24 +31,17 @@ const Contact = () => {
   return (
     <section>
       <div className=" bg-white px-4 py-8 lg:px-12 flex items-center flex-col justify-center md:grid md:grid-cols-2 md:py-12 place-items-center">
-        {/* <Form /> */}
         <div className=" w-1/2  flex rounded-xl relative">
-          {/* <div
-          className={cn(
-            "top-0 left-0 w-full h-full absolute rounded-xl opacity-100",
-            "bg-radial-[at_25%_25%] from-transparent to-primary/50 to-75%"
-          )}
-        /> */}
           <img src={fcImg} className="aspect-square w-full rounded-lg " />
         </div>
         <Accordion items={accordionItems} />
       </div>
       <div className=" bg-white px-4 py-8 lg:px-12 flex items-center flex-col justify-center md:grid md:grid-cols-2 md:py-12 place-items-center">
         {/* <Accordion items={accordionItems} /> */}
-        <div className="border w-full h-full grid place-items-center">
+        <div className="w-full h-full grid place-items-center">
           <div className="w-fit flex flex-col">
-            <h3 className="m-auto w-fit capitalize mb-8">Office Location</h3>
-            <div className="border flex w-fit m-auto p-2 items-start justify-center gap-3">
+            <h3 className="m-auto w-fit capitalize mb-2">Office Location</h3>
+            <div className="flex w-fit m-auto p-2 items-start justify-center gap-3">
               <MapPin className="mt-2" size={20} strokeWidth={1} />
               <div className="flex w-fit flex-col">
                 <p>Meccacon Private Limited</p>
@@ -56,7 +50,7 @@ const Contact = () => {
                 <p>Telengana, India</p>
               </div>
             </div>
-            <div className="border flex w-full m-auto p-2 gap-3 place-self-start">
+            <div className="flex w-full m-auto p-2 gap-3 place-self-start">
               <div className="flex gap-2 items-center justify-center">
                 <Phone size={18} strokeWidth={1} />
                 <p>+91 0123456789</p>
@@ -68,6 +62,13 @@ const Contact = () => {
         <div className=" w-1/2  flex rounded-xl relative">
           <img src={acImg} className="aspect-square w-full rounded-lg " />
         </div>
+      </div>
+
+      <div className=" bg-white px-4 py-8 lg:px-12 flex items-center flex-col justify-center md:grid md:grid-cols-2 md:py-12 place-items-center">
+        <div className=" w-1/2  flex rounded-xl relative">
+          <img src={mcImg} className="aspect-square w-full rounded-lg " />
+        </div>
+        <Form title="...Or leave a message" />
       </div>
     </section>
   );
