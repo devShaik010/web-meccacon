@@ -29,7 +29,7 @@ const AccordionItem = ({ title, content, isExpanded, onToggle }) => {
 
   return (
     <motion.div
-      className={`w-full dark:bg-gray-800' my-4 h-full cursor-pointer select-none overflow-hidden rounded-lg border  dark:border-gray-700`}
+      className={`w-2/3 m-auto dark:bg-gray-800' my-4 h-full cursor-pointer select-none overflow-hidden rounded-lg border  dark:border-gray-700`}
       variants={cardVariants}
       initial="collapsed"
       animate={isExpanded ? "expanded" : "collapsed"}
@@ -61,7 +61,10 @@ export const Accordion = ({ items }) => {
   };
 
   return (
-    <div className="space-y-4 w-2/3">
+    <div className="space-y-4 w-full">
+      <h3 className="m-auto w-fit capitalize mb-8">
+        Frequently Asked questions
+      </h3>
       {items.map((item, index) => (
         <AccordionItem
           key={index}
