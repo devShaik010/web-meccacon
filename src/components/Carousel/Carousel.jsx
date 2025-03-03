@@ -136,19 +136,20 @@ const ServicesSection = () => {
             >
               {/* Background Pattern */}
               <div className="absolute -right-8 -bottom-8 w-32 h-32 
-                           bg-[var(--color-secondary)]/10 rounded-full 
+                           bg-[var(--color-secondary)]/20 rounded-full 
                            group-hover:scale-150 transition-transform duration-500"></div>
               
               {/* Icon */}
               <div className="relative z-10 flex items-start mb-6">
                 <div className="w-14 h-14 rounded-xl 
-                             bg-[var(--color-secondary)]/10 
-                             group-hover:bg-[var(--color-secondary)] 
-                             transition-colors duration-300 
+                             bg-gradient-to-br from-[var(--color-secondary)]/10 to-[var(--color-secondary)]/30
+                             group-hover:from-[var(--color-secondary)] group-hover:to-[var(--color-secondary-dark)]
+                             transition-all duration-300 
                              flex items-center justify-center">
                   <div className="text-[var(--color-secondary)] 
-                               group-hover:text-white 
-                               transition-colors duration-300">
+                               group-hover:text-white
+                               transition-all duration-300 
+                               drop-shadow-lg">
                     {service.icon}
                   </div>
                 </div>
@@ -170,22 +171,22 @@ const ServicesSection = () => {
               <div className="relative z-10 mt-6 flex items-center">
                 <a href={`/services/${service.id}`} 
                    className="inline-flex items-center text-sm font-medium 
-                            text-[var(--color-secondary)] 
+                            text-[var(--color-secondary)]
                             group-hover:text-[var(--color-secondary-dark)]">
                   <span className="border-b border-transparent 
-                                group-hover:border-[var(--color-secondary)] 
+                                group-hover:border-[var(--color-secondary-dark)] 
                                 transition-all duration-300">
                     Learn more
                   </span>
                   <svg className="w-4 h-4 ml-1 transform 
                               group-hover:translate-x-1 
-                              transition-transform duration-300" 
+                              transition-all duration-300" 
                        fill="none" 
-                       stroke="currentColor" 
+                       stroke="currentColor"
+                       strokeWidth={2.5}
                        viewBox="0 0 24 24">
                     <path strokeLinecap="round" 
                           strokeLinejoin="round" 
-                          strokeWidth={2} 
                           d="M9 5l7 7-7 7" />
                   </svg>
                 </a>

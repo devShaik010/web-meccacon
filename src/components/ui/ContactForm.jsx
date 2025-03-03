@@ -4,6 +4,7 @@ import { Button } from "@components/ui/Button";
 import { cn } from "@utils/cn";
 import ShowError from "@components/ui/ShowError";
 import { Textarea } from "@components/ui/Textarea";
+
 function ContactForm() {
   const {
     register,
@@ -16,30 +17,31 @@ function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full h-full flex items-start justify-center flex-col gap-2 rounded-xl"
+      className="w-full flex flex-col items-center justify-center gap-4 p-8 bg-white rounded-xl "
     >
-      <div className="flex flex-col w-9/12  h-full items-start justify-center lg:gap-6 gap-2 rounded-xl p-2 m-auto">
-        {/* heading */}
-        <h4 className="text-xl md:text-3xl lg:text-4xl font-semibold capitalize mb-2">
-          Lets Have a chat!
+      <div className="w-full max-w-3xl flex flex-col items-start gap-6">
+        {/* Heading */}
+        <h4 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-800">
+          Let's Have a Chat!
         </h4>
-        {/* name fields */}
-        <div className="flex flex-col w-full lg:flex-row gap-2">
+
+        {/* Name Fields */}
+        <div className="flex flex-col lg:flex-row gap-4 w-full">
           <div className="flex flex-col w-full">
             <label
               data-error={errors?.firstName ? true : false}
               className={cn(
-                "transition-all duration-300 ease-in-out",
-                "text-primary/60 text-sm data-[error=true]:text-red-500/80",
-                "inline-flex"
+                "text-sm font-medium transition-colors",
+                "text-gray-700 data-[error=true]:text-red-500"
               )}
             >
               First Name <span className="text-red-500">*</span>
             </label>
             <Input
               className={cn(
-                "transition-all duration-300 ease-in-out",
-                "data-[error=true]:border-red-400 data-[error=true]:border-2 data-[error=true]:bg-red-200/50"
+                "w-full p-2 border rounded-md transition-all duration-300",
+                "focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]",
+                "data-[error=true]:border-red-400 data-[error=true]:bg-red-50"
               )}
               data-error={errors?.firstName ? true : false}
               placeholder="John"
@@ -51,7 +53,7 @@ function ContactForm() {
               })}
             />
             {errors?.firstName && (
-              <ShowError className="text-sm bg-none text-red-500/80 mt-1">
+              <ShowError className="text-sm mt-1 text-red-500">
                 {errors?.firstName.message}
               </ShowError>
             )}
@@ -59,19 +61,19 @@ function ContactForm() {
 
           <div className="flex flex-col w-full">
             <label
-              data-error={errors?.firstName ? true : false}
+              data-error={errors?.lastName ? true : false}
               className={cn(
-                "transition-all duration-300 ease-in-out",
-                "text-primary/60 text-sm data-[error=true]:text-red-500/80",
-                "inline-flex"
+                "text-sm font-medium transition-colors",
+                "text-gray-700 data-[error=true]:text-red-500"
               )}
             >
               Last Name <span className="text-red-500">*</span>
             </label>
             <Input
               className={cn(
-                "transition-all duration-300 ease-in-out",
-                "data-[error=true]:border-red-400 data-[error=true]:border-2 data-[error=true]:bg-red-200/50"
+                "w-full p-2 border rounded-md transition-all duration-300",
+                "focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]",
+                "data-[error=true]:border-red-400 data-[error=true]:bg-red-50"
               )}
               placeholder="Doe"
               data-error={errors?.lastName ? true : false}
@@ -83,36 +85,37 @@ function ContactForm() {
               })}
             />
             {errors?.lastName && (
-              <ShowError className="text-sm bg-none text-red-500/80 mt-1">
+              <ShowError className="text-sm mt-1 text-red-500">
                 {errors?.lastName.message}
               </ShowError>
             )}
           </div>
         </div>
-        {/* email field */}
+
+        {/* Email Field */}
         <div className="flex flex-col w-full">
           <label
             data-error={errors?.email ? true : false}
             className={cn(
-              "transition-all duration-300 ease-in-out",
-              "text-primary/60 text-sm data-[error=true]:text-red-500/80",
-              "inline-flex"
+              "text-sm font-medium transition-colors",
+              "text-gray-700 data-[error=true]:text-red-500"
             )}
           >
             Email <span className="text-red-500">*</span>
           </label>
           <Input
             className={cn(
-              "transition-all duration-300 ease-in-out",
-              "data-[error=true]:border-red-400 data-[error=true]:border-2 data-[error=true]:bg-red-200/50"
+              "w-full p-2 border rounded-md transition-all duration-300",
+              "focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]",
+              "data-[error=true]:border-red-400 data-[error=true]:bg-red-50"
             )}
             data-error={errors?.email ? true : false}
-            placeholder="example@domain.tldr"
+            placeholder="example@domain.com"
             type="email"
             {...register("email", {
               required: {
                 value: true,
-                message: "email is required",
+                message: "Email is required",
               },
               pattern: {
                 value: /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/,
@@ -121,29 +124,30 @@ function ContactForm() {
             })}
           />
           {errors?.email && (
-            <ShowError className="text-sm bg-none text-red-500/80 mt-1">
+            <ShowError className="text-sm mt-1 text-red-500">
               {errors?.email.message}
             </ShowError>
           )}
         </div>
-        {/* message field */}
+
+        {/* Message Field */}
         <div className="flex flex-col w-full">
           <label
-            data-error={errors?.email ? true : false}
+            data-error={errors?.message ? true : false}
             className={cn(
-              "transition-all duration-300 ease-in-out",
-              "text-primary/60 text-sm data-[error=true]:text-red-500/80",
-              "inline-flex"
+              "text-sm font-medium transition-colors",
+              "text-gray-700 data-[error=true]:text-red-500"
             )}
           >
-            Messages <span className="text-red-500">*</span>
+            Message <span className="text-red-500">*</span>
           </label>
           <Textarea
             className={cn(
-              "transition-all duration-300 ease-in-out",
-              "data-[error=true]:border-red-400 data-[error=true]:border-2 data-[error=true]:bg-red-200/50"
+              "w-full p-2 border rounded-md transition-all duration-300",
+              "focus:outline-none focus:ring-2 focus:ring-[var(--color-secondary)]",
+              "data-[error=true]:border-red-400 data-[error=true]:bg-red-50"
             )}
-            data-error={errors?.email ? true : false}
+            data-error={errors?.message ? true : false}
             placeholder="Hi there..."
             {...register("message", {
               required: {
@@ -153,13 +157,13 @@ function ContactForm() {
             })}
           />
           {errors?.message && (
-            <ShowError className="text-sm bg-none text-red-500/80 mt-1">
+            <ShowError className="text-sm mt-1 text-red-500">
               {errors?.message.message}
             </ShowError>
           )}
         </div>
 
-        {/* submit button */}
+        {/* Submit Button */}
         <Button
           type="submit"
           className={cn(
