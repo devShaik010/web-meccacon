@@ -18,10 +18,10 @@ const Navbar = () => {
     <nav className="bg-[var(--color-primary)] font-[Poppins] w-full">
       <div className="max-w-screen-xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center">
-            <img src={logo} alt="Logo" className="h-8" />
-          </div>
+          {/* Logo with Link */}
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Logo" className="h-12" /> {/* Updated height from h-8 to h-12 */}
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center space-x-6">
@@ -80,9 +80,11 @@ const Navbar = () => {
         <div className={`fixed right-0 top-0 h-full w-64 bg-[var(--color-primary)] text-white 
                         shadow-lg transform transition-transform duration-300
                         ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          {/* Drawer Header */}
+          {/* Drawer Header with Link */}
           <div className="p-4 text-center">
-            <img src={logo} alt="Logo" className="h-10 mx-auto" />
+            <Link to="/" onClick={toggleDrawer(false)}>
+              <img src={logo} alt="Logo" className="h-12 mx-auto" /> {/* Updated height from h-10 to h-12 */}
+            </Link>
           </div>
 
           {/* Divider */}
