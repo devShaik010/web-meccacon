@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -124,9 +124,7 @@ const Circle = () => {
           </svg>
 
           {/* Direction Arrow */}
-          <div className="direction-arrow absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-            
-          </div>
+          <div className="direction-arrow absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"></div>
 
           {/* Center Content */}
           <div className="absolute inset-0 flex items-center justify-center z-20">
@@ -144,11 +142,8 @@ const Circle = () => {
               </div>
             </motion.div>
           </div>
-
-                </div>
-
+        </div>
       </div>
-
     </section>
   );
 };

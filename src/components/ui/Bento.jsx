@@ -1,6 +1,5 @@
 import { cn } from "@utils/cn";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 
 // Add animation variants for text
@@ -22,39 +21,46 @@ function AnimatedCounter({ end, duration = 2, suffix = "", prefix = "" }) {
   const [count, setCount] = useState(0);
   const nodeRef = useRef(null);
   const isInView = useInView(nodeRef, { once: true, margin: "-50px" });
-  
+
   useEffect(() => {
     if (!isInView) return;
-    
+
     let startTime;
     let animationFrame;
-    
+
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
       const currentCount = Math.floor(progress * end);
-      
+
       setCount(currentCount);
-      
+
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate);
       }
     };
-    
+
     animationFrame = requestAnimationFrame(animate);
-    
+
     return () => cancelAnimationFrame(animationFrame);
   }, [end, duration, isInView]);
-  
+
   return (
     <span ref={nodeRef} className="inline-block">
-      {prefix}{count}{suffix}
+      {prefix}
+      {count}
+      {suffix}
     </span>
   );
 }
 
 // --- Updated BentoCard Component ---
-function BentoCard({ children, className, delay = 0, hoverColor = "var(--color-accent)" }) {
+function BentoCard({
+  children,
+  className,
+  delay = 0,
+  hoverColor = "var(--color-accent)",
+}) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -69,10 +75,7 @@ function BentoCard({ children, className, delay = 0, hoverColor = "var(--color-a
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
       // Removed the before pseudo-element classes to prevent low opacity overlay.
-      className={cn(
-        "group relative overflow-hidden",
-        className
-      )}
+      className={cn("group relative overflow-hidden", className)}
       style={{
         "--hover-color": hoverColor,
       }}
@@ -151,7 +154,7 @@ function Bento() {
             "rounded-2xl bg-white",
             "min-h-72 md:min-h-56",
             "relative flex items-center p-8",
-            "bg-[url('/cc.svg')] bg-no-repeat bg-[size:50%]",
+            "bg-[url('/cc.svg')] bg-no-repeat bg-[size:90%]",
             "bg-[position:90%_50%]",
             "transition-all ease-out duration-500 hover:-translate-y-2 hover:rotate-1",
             "border border-gray-100/50 hover:border-[var(--hover-color)]/40",
@@ -166,7 +169,7 @@ function Bento() {
             className="relative z-20 max-w-[65%]"
           >
             <span
-              className="text-sm font-medium block mb-3 py-1 px-3 rounded-full inline-block"
+              className="text-sm font-medium block mb-3 py-1 px-3 rounded-full w-fit"
               style={{
                 background: "var(--color-secondary)",
                 color: "white",
@@ -178,8 +181,7 @@ function Bento() {
               className="text-3xl md:text-3xl lg:text-5xl font-bold"
               style={{ color: "var(--color-primary)" }}
             >
-              Operating Since{" "}
-              <AnimatedCounter end={2020} duration={1.5} />
+              Operating Since <AnimatedCounter end={2020} duration={1.5} />
             </p>
           </motion.div>
         </BentoCard>
@@ -223,7 +225,7 @@ function Bento() {
             "md:col-span-2 md:row-span-4",
             "rounded-2xl bg-white",
             "relative flex p-8 items-start",
-            "min-h-80 md:min-h-56",
+            "min-h-96 md:min-h-56",
             "bg-[url('/lc.svg')] bg-no-repeat bg-[size:70%]", // minimized background
             "bg-[position:50%_100%]",
             "transition-all ease-out duration-500 hover:-translate-y-2",
@@ -236,13 +238,6 @@ function Bento() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <p
-              className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3"
-              style={{ color: "var(--color-primary)" }}
-            >
-              Present Across{" "}
-              <AnimatedCounter end={28} suffix="" duration={1.5} /> States
-            </p>
             <span
               className="text-sm py-1 px-3 rounded-full inline-block"
               style={{
@@ -252,6 +247,13 @@ function Bento() {
             >
               National Coverage
             </span>
+            <p
+              className="text-3xl md:text-3xl lg:text-4xl font-bold mb-3"
+              style={{ color: "var(--color-primary)" }}
+            >
+              Present Across{" "}
+              <AnimatedCounter end={28} suffix="" duration={1.5} /> States
+            </p>
           </motion.div>
         </BentoCard>
 
@@ -263,7 +265,7 @@ function Bento() {
             "md:col-span-3 md:row-span-4",
             "rounded-2xl bg-white",
             "relative flex p-8 pb-0 pt-10 items-start",
-            "lg:min-h-56 min-h-72",
+            "lg:min-h-56 min-h-96",
             "flex items-center justify-between flex-col",
             "bg-[url('/ec.svg')] bg-no-repeat bg-[size:100%]", // constant background size
             "bg-bottom",
