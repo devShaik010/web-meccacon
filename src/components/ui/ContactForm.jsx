@@ -4,8 +4,7 @@ import { Button } from "@components/ui/Button";
 import { cn } from "@utils/cn";
 import ShowError from "@components/ui/ShowError";
 import { Textarea } from "@components/ui/Textarea";
-
-function ContactForm() {
+function ContactForm({ title = "Lets Have a chat!" }) {
   const {
     register,
     handleSubmit,
@@ -19,10 +18,10 @@ function ContactForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="w-full flex flex-col items-center justify-center gap-4 p-8 bg-white rounded-xl "
     >
-      <div className="w-full max-w-3xl flex flex-col items-start gap-6">
-        {/* Heading */}
-        <h4 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-800">
-          Let's Have a Chat!
+      <div className="flex flex-col w-9/12  h-full items-start justify-center lg:gap-6 gap-2 rounded-xl p-2 m-auto">
+        {/* heading */}
+        <h4 className="text-xl md:text-3xl lg:text-4xl font-semibold capitalize mb-2">
+          {title}
         </h4>
 
         {/* Name Fields */}

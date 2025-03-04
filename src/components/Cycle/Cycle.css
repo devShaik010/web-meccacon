@@ -1,0 +1,311 @@
+.progress-section {
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .section-title {
+    text-align: center;
+    color: #1B1711;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+  }
+  
+  .circle-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+  }
+  
+  /* Main Circle */
+  .progress-circle {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(255, 199, 0, 0.1);
+    transition: all 0.6s ease-in-out;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .circle-inner {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+  }
+  
+  /* Circle Slices */
+  .circle-slice {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: bottom right;
+    z-index: 3;
+  }
+  
+  .circle-slice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 2px;
+    background: rgba(255, 199, 0, 0.2);
+    transform-origin: right;
+    transform: rotate(-45deg);
+    transition: background-color 0.5s ease;
+  }
+  
+  .circle-slice.active::before {
+    background: #FFC700;
+    box-shadow: 0 0 10px rgba(255, 199, 0, 0.5);
+  }
+  
+  /* Phase Numbers */
+  .phase-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border: 2px solid rgba(255, 199, 0, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #1B1711;
+    transition: all 0.5s ease;
+    z-index: 4;
+  }
+  
+  .circle-slice.active .phase-number {
+    border-color: #FFC700;
+    background: #FFC700;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 199, 0, 0.5);
+  }
+  
+  /* Content Wrapper */
+  .content-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+  }
+  
+  /* Content Boxes */
+  .content-box {
+    position: absolute;
+    width: 280px;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    pointer-events: auto;
+  }
+  
+  .content-box.active {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-left: 3px solid #FFC700;
+  }
+  
+  /* Position content boxes */
+  .content-top-right {
+    top: 10%; 
+    right: 10%;
+  }
+  
+  .content-top-left {
+    top: 10%;
+    left: 10%;
+  }
+  
+  .content-bottom-left {
+    bottom: 10%;
+    left: 10%;
+  }
+  
+  .content-bottom-right {
+    bottom: 10%;
+    right: 10%;
+  }
+  
+  /* Connectors */
+  .connector {
+    position: absolute;
+    background: rgba(255, 199, 0, 0.2);
+    height: 2px;
+    width: 60px;
+    transition: all 0.5s ease;
+  }
+  
+  .connector.active {
+    background: #FFC700;
+    box-shadow: 0 0 8px rgba(255, 199, 0, 0.5);
+  }
+  
+  .connector-1 {
+    right: 100%;
+    top: 50%;
+  }
+  
+  .connector-2 {
+    left: 100%;
+    top: 50%;
+  }
+  
+  .connector-3 {
+    left: 100%;
+    top: 50%;
+  }
+  
+  .connector-4 {
+    right: 100%;
+    top: 50%;
+  }
+  
+  /* Content Typography */
+  .content-title {
+    color: #1B1711;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .content-description {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  /* Mobile Optimizations */
+  @media (max-width: 960px) {
+    .progress-circle {
+      width: 280px;
+      height: 280px;
+    }
+  
+    .phase-number {
+      width: 30px;
+      height: 30px;
+      font-size: 0.875rem;
+    }
+  
+    .content-box {
+      width: 220px;
+      padding: 1rem;
+    }
+  
+    /* Reposition content boxes for mobile */
+    .content-top-right,
+    .content-bottom-right {
+      right: 5%;
+    }
+  
+    .content-top-left,
+    .content-bottom-left {
+      left: 5%;
+    }
+  
+    .connector {
+      width: 40px;
+    }
+  
+    .content-title {
+      font-size: 1.25rem;
+    }
+  
+    .content-description {
+      font-size: 0.875rem;
+    }
+  
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  /* For very small screens */
+  @media (max-width: 600px) {
+    .circle-container {
+      min-height: 400px;
+    }
+  
+    .progress-circle {
+      width: 240px;
+      height: 240px;
+    }
+  
+    .content-box {
+      width: 180px;
+    }
+  
+    /* Stack content boxes vertically for very small screens */
+    .content-top-right {
+      top: -80px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+  
+    .content-top-left {
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .content-bottom-left {
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .content-bottom-right {
+      bottom: -80px;
+      right: 50%;
+      transform: translateX(50%);
+    }
+  
+    .content-box.active {
+      transform: translateY(0) translateX(50%);
+    }
+  
+    .connector {
+      display: none;
+    }
+  }
+  
+  /* Animation for phase change */
+  @keyframes pulseHighlight {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(255, 199, 0, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(255, 199, 0, 0.7);
+    }
+  }
+  
+  .circle-slice.active .phase-number {
+    animation: pulseHighlight 2s infinite;
+  }
