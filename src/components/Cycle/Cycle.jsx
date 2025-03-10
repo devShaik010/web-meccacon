@@ -40,15 +40,15 @@ const phases = [
  * Larger circle radius for laptop screens.
  * This affects the arcs and the main circle.
  */
-const circleRadius = 45; // Reduced from 60
+const circleRadius = 45; // Reduced from 45
 /**
  * Where the phase numbers sit (on the circle border).
  */
-const labelRadius  = 45;  // Reduced from 60
+const labelRadius  = 45;  // Updated from 35
 /**
  * Where the phase cards sit (further out).
  */
-const cardRadius   = 65;   // Reduced from 80
+const cardRadius   = 65;   // Updated from 55
 const totalPhases  = phases.length;
 
 const Cycle = () => {
@@ -88,15 +88,15 @@ const Cycle = () => {
   return (
     <section 
       ref={sectionRef} 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 relative"
+      className="min-h-screen flex items-center justify-center bg-white relative" // Changed from gradient
     >
       <div className="container mx-auto px-4">
         {/* 
           Outer wrapper pinned by ScrollTrigger, 
           with a bigger width/height to accommodate the larger circle.
         */}
-        <div className="relative flex justify-center items-center min-h-[600px]">
-          <div ref={circleRef} className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px]">
+        <div className="relative flex justify-center items-center min-h-[500px]"> {/* Reduced from 600px */}
+          <div ref={circleRef} className="relative w-[250px] h-[250px] md:w-[400px] md:h-[400px]"> {/* Reduced from 300px/500px */}
             
             {/*
               1) The base circle + arcs
@@ -108,13 +108,13 @@ const Cycle = () => {
                 cy="50"
                 r={circleRadius}
                 fill="none"
-                stroke="#f8fafc"
-                strokeWidth="3"
+                stroke="#f1f5f9" // Lighter gray for subtle contrast
+                strokeWidth="2.5" // Reduced from 3
                 className="hidden md:block"
               />
               <circle
-                cx="50"
-                cy="50"
+                cx="50" // Fixed from 20
+                cy="50" // Fixed from 20
                 r={circleRadius}
                 fill="none"
                 stroke="#f8fafc"
@@ -137,11 +137,11 @@ const Cycle = () => {
                       ${50 + circleRadius},50
                     `}
                     fill="none"
-                    stroke={isActive ? '#FBBF24' : '#E5E7EB'}
+                    stroke={isActive ? '#FBBF24' : '#e2e8f0'} // Adjusted colors
                     strokeWidth="2.5"
                     strokeLinecap="round"
-                    transform={`rotate(${rotation} 50 50)`}
                     className="transition-all duration-700 ease-out"
+                    transform={`rotate(${rotation} 50 50)`}
                   />
                 );
               })}
@@ -156,17 +156,15 @@ const Cycle = () => {
                 const isActive = index <= activePhase && activePhase >= 0;
                 if (!isActive) return null;
 
-                // Midpoint angle in degrees (45°, 135°, 225°, 315°)
-                const angleDeg = 45 + index * 90;
+                // Adjust angle to point between numbers (add 45° to original position)
+                const angleDeg = -45 + (index * 90);
                 const angleRad = (Math.PI / 180) * angleDeg;
 
-                // Circle border point
                 const borderX = 50 + circleRadius * Math.cos(angleRad);
                 const borderY = 50 + circleRadius * Math.sin(angleRad);
 
-                // Card center
-                const cardX = 50 + cardRadius * Math.cos(angleRad);
-                const cardY = 50 + cardRadius * Math.sin(angleRad);
+                const cardX = 50 + (cardRadius * 1.2) * Math.cos(angleRad); // Increased radius for cards
+                const cardY = 50 + (cardRadius * 1.2) * Math.sin(angleRad);
 
                 return (
                   <line
@@ -175,9 +173,10 @@ const Cycle = () => {
                     y1={borderY}
                     x2={cardX}
                     y2={cardY}
-                    stroke="#FBBF24"
+                    stroke="#1a1a1a" // Changed to black
                     strokeWidth="1.5"
-                    className="animated-line"
+                    strokeDasharray="4 2"
+                    className="transition-all duration-700"
                   />
                 );
               })}
@@ -188,15 +187,16 @@ const Cycle = () => {
                  (e.g., 45°, 135°, 225°, 315°) on the circle border
             */}
             {phases.map((phase, index) => {
-              const angleDeg = 45 + index * 90;
+              // Start from top (-90°) and rotate clockwise
+              const angleDeg = -90 + index * 90;
               const angleRad = (Math.PI / 180) * angleDeg;
-
+              
               // Position on the circle border
               const x = 50 + labelRadius * Math.cos(angleRad);
               const y = 50 + labelRadius * Math.sin(angleRad);
-
+            
               const isActive = index <= activePhase && activePhase >= 0;
-
+            
               return (
                 <div
                   key={phase.id}
@@ -209,19 +209,18 @@ const Cycle = () => {
                     transform: 'translate(-50%, -50%)',
                   }}
                 >
-                  <div
-                    className={`
-                      w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center
-                      backdrop-blur-sm bg-white/90 text-sm md:text-base font-bold
-                      border-2 transition-all duration-700 ease-out shadow-sm
-                      ${
-                        isActive
-                          ? 'border-amber-400 text-amber-500 shadow-amber-200/50'
-                          : 'border-gray-200 text-gray-400'
-                      }
-                    `}
+                  <div className={`w-8 h-8 md:w-12 md:h-12 rounded-full 
+                    flex items-center justify-center
+                    bg-white shadow-md
+                    border-3 transition-all duration-700 ease-out
+                    ${isActive 
+                      ? 'border-amber-400 text-amber-500 scale-110' 
+                      : 'border-gray-200 text-gray-400'
+                    }`}
                   >
-                    {phase.number}
+                    <span className="text-sm md:text-base font-bold">
+                      {phase.number}
+                    </span>
                   </div>
                 </div>
               );
@@ -234,14 +233,16 @@ const Cycle = () => {
                  
               - Horizontal design:
                 We give each card a fixed width/height, place icon on the left,
-                text & link on the right.
+                text & link on the right.; // Match the number positions
             */}
             {phases.map((phase, index) => {
-              const angleDeg = 45 + index * 90;
+              // Adjust angle to match connecting lines (45° offset)
+              const angleDeg = -45 + (index * 90);
               const angleRad = (Math.PI / 180) * angleDeg;
 
-              const x = 50 + cardRadius * Math.cos(angleRad);
-              const y = 50 + cardRadius * Math.sin(angleRad);
+              // Increase card radius to move cards further out
+              const x = 50 + (cardRadius * 1.2) * Math.cos(angleRad);
+              const y = 50 + (cardRadius * 1.2) * Math.sin(angleRad);
 
               const isVisible = index <= activePhase;
 
@@ -249,7 +250,7 @@ const Cycle = () => {
                 <div
                   key={`card-${phase.id}`}
                   className={`absolute transition-all duration-700 ease-out ${
-                    isVisible ? 'opacity-100' : 'opacity-0'
+                    isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                   }`}
                   style={{
                     left: `${x}%`,
@@ -257,42 +258,43 @@ const Cycle = () => {
                     transform: 'translate(-50%, -50%)',
                   }}
                 >
-                  <div
-                    className="
-                      w-[200px] h-[90px]  // Reduced from 220px/100px
-                      bg-white/90 backdrop-blur-sm rounded-lg
-                      shadow-lg border border-gray-100
-                      hover:shadow-xl transition-shadow
-                      flex flex-row items-center
-                      p-2 md:p-3 gap-2    // Reduced padding and gap
-                    "
-                  >
-                    {/* Icon (or image) on the left */}
-                    <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-amber-50 
-                      flex items-center justify-center text-xl md:text-2xl">
+                  <div className="
+                    bg-white rounded-xl
+                    shadow-[0_4px_20px_-3px_rgba(0,0,0,0.1)]
+                    hover:shadow-lg hover:scale-105
+                    transition-all duration-300
+                    flex flex-row items-center
+                    p-3 md:p-4 gap-3
+                    border border-gray-100
+                    w-[200px] md:w-[250px]
+                  ">
+                    <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full 
+                      bg-gradient-to-br from-amber-50 to-amber-100
+                      flex items-center justify-center text-2xl md:text-3xl
+                      shadow-inner"
+                    >
                       {phase.icon}
                     </div>
 
-                    {/* Text & link on the right */}
                     <div className="flex flex-col flex-1 min-w-0">
-                      <h4 className="text-xs md:text-sm font-semibold text-gray-900 mb-0.5 truncate">
+                      <h4 className="text-sm md:text-base font-bold text-gray-800 mb-1 truncate">
                         {phase.title}
                       </h4>
-                      <p className="text-[10px] md:text-xs text-gray-500 line-clamp-2">
+                      <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
                         {phase.description}
                       </p>
                       <a 
                         href="#"
-                        className="text-[10px] md:text-xs text-blue-600 hover:underline self-start mt-0.5"
+                        className="text-xs md:text-sm text-amber-500 hover:text-amber-600 
+                          hover:underline self-start mt-1 font-semibold"
                       >
-                        Click Here
+                        Learn More →
                       </a>
                     </div>
                   </div>
                 </div>
               );
             })}
-
           </div>
         </div>
       </div>

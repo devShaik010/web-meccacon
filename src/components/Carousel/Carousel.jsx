@@ -112,7 +112,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section ref={sectionRef} className="py-20 bg-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div ref={titleRef} className="text-center mb-16">
