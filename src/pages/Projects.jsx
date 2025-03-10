@@ -37,8 +37,8 @@ export default function TimelineDemo() {
     },
   ];
   return (
-    <div className="w-full relative min-h-svh bg-primary-dark">
-      <div className="w-full py-12">
+    <div className="w-full relative min-h-screen bg-white">
+      <div className="w-full pt-20 pb-12"> {/* Added top padding for navbar */}
         <Timeline data={data} />
       </div>
     </div>

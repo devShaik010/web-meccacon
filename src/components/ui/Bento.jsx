@@ -68,13 +68,16 @@ function BentoCard({ children, className, delay = 0, hoverColor = "var(--color-a
         delay: delay,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
-      // Removed the before pseudo-element classes to prevent low opacity overlay.
       className={cn(
         "group relative overflow-hidden",
+        "backdrop-blur-sm bg-white/90",
+        "transition-all duration-500",
+        "hover:backdrop-blur-lg hover:bg-white/95",
         className
       )}
       style={{
         "--hover-color": hoverColor,
+        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
       }}
     >
       {children}
@@ -85,19 +88,19 @@ function BentoCard({ children, className, delay = 0, hoverColor = "var(--color-a
 function Bento() {
   // Define a vibrant color palette
   const colors = {
-    primary: "#000814", // Dark blue-black
-    secondary: "#ffc300", // Golden yellow
-    accent: "#001d3d", // Deep blue
-    success: "#2b9348", // Forest green
-    warning: "#fb8500", // Orange
-    gradient: "linear-gradient(135deg, #000814 0%, #001d3d 100%)",
+    primary: "#1a1a1a",    // Dark gray instead of blue-black
+    secondary: "#FBBF24",  // Warm amber instead of golden yellow
+    accent: "#2563EB",     // Bright blue instead of deep blue
+    success: "#059669",    // Emerald instead of forest green
+    warning: "#F97316",    // Light orange instead of deep orange
+    gradient: "linear-gradient(135deg, #fff 0%, #f8fafc 100%)",
   };
 
   return (
     <section
       className="w-full h-full flex flex-col py-16 lg:py-28 px-6 lg:px-10"
       style={{
-        background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+        background: "#ffffff",
         "--color-primary": colors.primary,
         "--color-secondary": colors.secondary,
         "--color-accent": colors.accent,
@@ -155,7 +158,15 @@ function Bento() {
             "bg-[position:90%_50%]",
             "transition-all ease-out duration-500 hover:-translate-y-2 hover:rotate-1",
             "border border-gray-100/50 hover:border-[var(--hover-color)]/40",
-            "shadow-lg hover:shadow-2xl shadow-blue-100/50 hover:shadow-blue-200/50"
+            "shadow-lg hover:shadow-2xl shadow-blue-100/50 hover:shadow-blue-200/50",
+            "backdrop-filter backdrop-blur-sm",
+            "bg-white/90 hover:bg-white/95",
+            "shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+            "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
+            "border border-gray-100/50",
+            "hover:border-[var(--hover-color)]/20",
+            "transition-all duration-500 ease-out",
+            "hover:-translate-y-1 hover:scale-[1.02]"
           )}
         >
           <motion.div
@@ -197,7 +208,15 @@ function Bento() {
             "bg-[position:100%_100%]",
             "transition-all ease-out duration-500 hover:-translate-y-2",
             "border border-gray-100 hover:border-purple-300/30",
-            "shadow-lg hover:shadow-2xl shadow-purple-100/30 hover:shadow-purple-200/40"
+            "shadow-lg hover:shadow-2xl shadow-purple-100/30 hover:shadow-purple-200/40",
+            "backdrop-filter backdrop-blur-sm",
+            "bg-white/90 hover:bg-white/95",
+            "shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+            "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
+            "border border-gray-100/50",
+            "hover:border-[var(--hover-color)]/20",
+            "transition-all duration-500 ease-out",
+            "hover:-translate-y-1 hover:scale-[1.02]"
           )}
         >
           <motion.p
@@ -228,7 +247,15 @@ function Bento() {
             "bg-[position:50%_100%]",
             "transition-all ease-out duration-500 hover:-translate-y-2",
             "border border-gray-100 hover:border-green-300/30",
-            "shadow-lg hover:shadow-2xl shadow-green-100/30 hover:shadow-green-200/40"
+            "shadow-lg hover:shadow-2xl shadow-green-100/30 hover:shadow-green-200/40",
+            "backdrop-filter backdrop-blur-sm",
+            "bg-white/90 hover:bg-white/95",
+            "shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+            "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
+            "border border-gray-100/50",
+            "hover:border-[var(--hover-color)]/20",
+            "transition-all duration-500 ease-out",
+            "hover:-translate-y-1 hover:scale-[1.02]"
           )}
         >
           <motion.div
@@ -269,7 +296,15 @@ function Bento() {
             "bg-bottom",
             "transition-all ease-out duration-500 hover:-translate-y-2",
             "border border-gray-100 hover:border-amber-300/30",
-            "shadow-lg hover:shadow-2xl shadow-amber-100/30 hover:shadow-amber-200/40"
+            "shadow-lg hover:shadow-2xl shadow-amber-100/30 hover:shadow-amber-200/40",
+            "backdrop-filter backdrop-blur-sm",
+            "bg-white/90 hover:bg-white/95",
+            "shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+            "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
+            "border border-gray-100/50",
+            "hover:border-[var(--hover-color)]/20",
+            "transition-all duration-500 ease-out",
+            "hover:-translate-y-1 hover:scale-[1.02]"
           )}
         >
           <motion.div
@@ -324,7 +359,15 @@ function Bento() {
             "bg-right-bottom",
             "transition-all ease-out duration-500 hover:-translate-y-2",
             "border border-gray-100 hover:border-blue-300/30",
-            "shadow-lg hover:shadow-2xl shadow-blue-100/30 hover:shadow-blue-200/40"
+            "shadow-lg hover:shadow-2xl shadow-blue-100/30 hover:shadow-blue-200/40",
+            "backdrop-filter backdrop-blur-sm",
+            "bg-white/90 hover:bg-white/95",
+            "shadow-[0_4px_20px_rgba(0,0,0,0.05)]",
+            "hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]",
+            "border border-gray-100/50",
+            "hover:border-[var(--hover-color)]/20",
+            "transition-all duration-500 ease-out",
+            "hover:-translate-y-1 hover:scale-[1.02]"
           )}
         >
           <motion.div
