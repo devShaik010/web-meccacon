@@ -125,7 +125,7 @@ const Circle = () => {
 
           {/* Direction Arrow */}
           <div className="direction-arrow absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-            
+
           </div>
 
           {/* Center Content */}
@@ -145,7 +145,7 @@ const Circle = () => {
             </motion.div>
           </div>
 
-                </div>
+        </div>
 
       </div>
 

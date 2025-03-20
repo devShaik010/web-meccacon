@@ -22,30 +22,30 @@ function AnimatedCounter({ end, duration = 2, suffix = "", prefix = "" }) {
   const [count, setCount] = useState(0);
   const nodeRef = useRef(null);
   const isInView = useInView(nodeRef, { once: true, margin: "-50px" });
-  
+
   useEffect(() => {
     if (!isInView) return;
-    
+
     let startTime;
     let animationFrame;
-    
+
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
       const currentCount = Math.floor(progress * end);
-      
+
       setCount(currentCount);
-      
+
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate);
       }
     };
-    
+
     animationFrame = requestAnimationFrame(animate);
-    
+
     return () => cancelAnimationFrame(animationFrame);
   }, [end, duration, isInView]);
-  
+
   return (
     <span ref={nodeRef} className="inline-block">
       {prefix}{count}{suffix}

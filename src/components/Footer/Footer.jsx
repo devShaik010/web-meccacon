@@ -56,14 +56,14 @@ const Footer = () => {
           {/* Brand Section - Updated */}
           <div className="space-y-6">
             <Link to="/" className="block">
-              <img 
-                src={logo} 
-                alt="Meccacon Logo" 
-                className="h-34 w-auto transform transition-transform duration-300 hover:scale-105" 
+              <img
+                src={logo}
+                alt="Meccacon Logo"
+                className="h-34 w-auto transform transition-transform duration-300 hover:scale-105"
               />
             </Link>
             <p className="text-sm text-white leading-relaxed max-w-xs">
-              Your trusted partner in construction and architectural excellence. 
+              Your trusted partner in construction and architectural excellence.
               Building dreams into reality since 2020.
             </p>
           </div>
@@ -74,10 +74,10 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerSections.company.map((link) => (
                 <li key={link.name}>
-                  <Link 
+                  <Link
                     to={link.href}
                     className="text-sm text-gray-500 hover:text-[var(--color-secondary)] transition-colors duration-300
-                             inline-block relative after:content-[''] after:absolute after:w-0 
+                             inline-block relative after:content-[''] after:absolute after:w-0
                              after:h-px after:bg-[var(--color-secondary)] after:left-0 after:-bottom-0.5
                              after:transition-all after:duration-300 hover:after:w-full"
                   >
@@ -94,10 +94,10 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerSections.legal.map((link) => (
                 <li key={link.name}>
-                  <Link 
+                  <Link
                     to={link.href}
                     className="text-sm text-gray-500  hover:text-[var(--color-secondary)] transition-colors duration-300
-                             inline-block relative after:content-[''] after:absolute after:w-0 
+                             inline-block relative after:content-[''] after:absolute after:w-0
                              after:h-px after:bg-[var(--color-secondary)] after:left-0 after:-bottom-0.5
                              after:transition-all after:duration-300 hover:after:w-full"
                   >
@@ -136,16 +136,16 @@ const Footer = () => {
             © {year} Meccacon. All rights reserved.
           </p>
           <div className="mt-4 sm:mt-0">
-            <button 
+            <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="text-sm text-gray-500  hover:text-[var(--color-secondary)] transition-colors duration-300
                        flex items-center space-x-2 group"
             >
               <span>Back to top</span>
-              <svg 
-                className="w-4 h-4 transform group-hover:-translate-y-1 transition-transform duration-300" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-4 h-4 transform group-hover:-translate-y-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
