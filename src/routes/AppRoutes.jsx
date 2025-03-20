@@ -5,6 +5,7 @@ import ProjectsHome from "@pages/Projects";
 import Contact from "@pages/Contact";
 import BaseLayout from "@layouts/BaseLayout";
 import ProjectLayout from "@layouts/Project";
+import ProjectDynamic from "@pages/ProjectDynamic";
 
 const AppRoutes = () => {
   return (
@@ -12,7 +13,12 @@ const AppRoutes = () => {
       <Route element={<BaseLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects" >
+          <Route index element={<ProjectsHome />} />
+          <Route element={<ProjectLayout />}>
+            <Route path=":projectId" element={<ProjectDynamic />} />
+          </Route>
+        </Route>
         <Route path="/contact" element={<Contact />} />
       </Route>
     </Routes>
