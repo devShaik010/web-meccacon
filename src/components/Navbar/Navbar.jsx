@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import logo from "@assets/images/logo.png";
 
 const pages = ["Home", "Projects", "Contact", "About"];
@@ -32,7 +32,7 @@ const Navbar = () => {
                 className="text-white font-medium relative px-2 py-1 group"
               >
                 <span>{page}</span>
-                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-secondary)] 
+                <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--color-secondary)]
                                group-hover:w-full group-hover:left-0 transition-all duration-300 ease-in-out">
                 </span>
               </Link>
@@ -42,8 +42,8 @@ const Navbar = () => {
             <div className="flex space-x-3">
               <button
                 key="phone"
-                className="w-10 h-10 rounded-full bg-white text-[var(--color-primary)] 
-                         shadow-md hover:bg-gray-100 hover:shadow-lg 
+                className="w-10 h-10 rounded-full bg-white text-[var(--color-primary)]
+                         shadow-md hover:bg-gray-100 hover:shadow-lg
                          transition-all duration-300 flex items-center justify-center"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,8 +52,8 @@ const Navbar = () => {
               </button>
               <button
                 key="email"
-                className="w-10 h-10 rounded-full bg-white text-[var(--color-primary)] 
-                         shadow-md hover:bg-gray-100 hover:shadow-lg 
+                className="w-10 h-10 rounded-full bg-white text-[var(--color-primary)]
+                         shadow-md hover:bg-gray-100 hover:shadow-lg
                          transition-all duration-300 flex items-center justify-center"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,9 +75,9 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Drawer */}
-      <div className={`fixed inset-0 bg-black/50 z-50 transition-opacity 
+      <div className={`fixed inset-0 bg-black/50 z-50 transition-opacity
                       ${drawerOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        <div className={`fixed right-0 top-0 h-full w-64 bg-[var(--color-primary)] text-white 
+        <div className={`fixed right-0 top-0 h-full w-64 bg-[var(--color-primary)] text-white
                         shadow-lg transform transition-transform duration-300
                         ${drawerOpen ? 'translate-x-0' : 'translate-x-full'}`}>
           {/* Drawer Header with Link */}
@@ -96,7 +96,7 @@ const Navbar = () => {
               <Link
                 key={page}
                 to={page === "Home" ? "/" : `/${page.toLowerCase()}`}
-                className="block text-center py-3 font-medium 
+                className="block text-center py-3 font-medium
                          hover:bg-[var(--color-primary-light)]"
                 onClick={toggleDrawer(false)}
               >
@@ -113,7 +113,7 @@ const Navbar = () => {
             <button
               key="phone"
               className="w-12 h-12 rounded-full bg-white text-black
-                       shadow-md hover:bg-gray-100 hover:shadow-lg 
+                       shadow-md hover:bg-gray-100 hover:shadow-lg
                        transition-all duration-300 flex items-center justify-center"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -123,7 +123,7 @@ const Navbar = () => {
             <button
               key="email"
               className="w-12 h-12 rounded-full bg-white text-black
-                       shadow-md hover:bg-gray-100 hover:shadow-lg 
+                       shadow-md hover:bg-gray-100 hover:shadow-lg
                        transition-all duration-300 flex items-center justify-center"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -135,7 +135,7 @@ const Navbar = () => {
           {/* Close Button */}
           <button
             onClick={toggleDrawer(false)}
-            className="absolute top-4 right-4 text-white 
+            className="absolute top-4 right-4 text-white
                      hover:text-[var(--color-secondary)] transition-colors duration-300"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,37 +1,40 @@
 import { Timeline } from "@components/ui/Timeline";
-import ContetCard from "@components/ui/ProjectCard";
+import ContentCard from "@components/ui/ProjectCard";
 export default function TimelineDemo() {
   const data = [
     {
       title: "2025",
       content: (
-        <ContetCard
+        <ContentCard
           heading={"Lorem ipsum dolor sit amet, consectetur adipisicing elit"}
           text={
             " Dolore, impedit porro adipisci totam numquam alias nam molestias\ndolorum perspiciatis similique officia quod inventore commodi\n   fugit corrupti nemo placeat mollitia distinctio"
           }
+          link="1"
         />
       ),
     },
     {
       title: "2024",
       content: (
-        <ContetCard
+        <ContentCard
           heading={"Lorem ipsum dolor sit amet, consectetur adipisicing elit"}
           text={
             " Dolore, impedit porro adipisci totam numquam alias nam molestias\ndolorum perspiciatis similique officia quod inventore commodi\n   fugit corrupti nemo placeat mollitia distinctio"
           }
+          link="2"
         />
       ),
     },
     {
       title: "2023",
       content: (
-        <ContetCard
+        <ContentCard
           heading={"Lorem ipsum dolor sit amet, consectetur adipisicing elit"}
           text={
             " Dolore, impedit porro adipisci totam numquam alias nam molestias\ndolorum perspiciatis similique officia quod inventore commodi\n   fugit corrupti nemo placeat mollitia distinctio"
           }
+          link="3"
         />
       ),
     },

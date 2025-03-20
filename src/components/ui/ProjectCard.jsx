@@ -1,7 +1,12 @@
 import img from "@assets/images//mariano-baraldi-a08GO4UMpzw-unsplash.jpg";
-export default function ContetCard({ heading, text, imgSrc = img }) {
+import { useNavigate } from "react-router";
+export default function ContentCard({ heading, text, imgSrc = img, link = "#" }) {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate(link)
+  }
   return (
-    <div className="bg-white border border-gray-100 shadow-lg hover:shadow-xl 
+    <div className="bg-white border border-gray-100 shadow-lg hover:shadow-xl
       transition-all duration-300 p-4 rounded-xl flex flex-col gap-4 lg:flex-row">
       <img
         src={imgSrc}
@@ -15,7 +20,7 @@ export default function ContetCard({ heading, text, imgSrc = img }) {
         <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
           {text}
         </p>
-        <button className="mt-2 self-start px-4 py-2 bg-amber-400 text-white 
+        <button onClick={handleClick} className="mt-2 self-start px-4 py-2 bg-amber-400 text-white
           rounded-lg hover:bg-amber-500 transition-colors duration-300 text-sm">
           Learn More
         </button>

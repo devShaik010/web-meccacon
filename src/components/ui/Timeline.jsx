@@ -1,11 +1,6 @@
 import { useScroll, useTransform, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-// interface TimelineEntry {
-//   title: string;
-//   content: React.ReactNode;
-// }
-
 export const Timeline = ({ data }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
@@ -37,7 +32,7 @@ export const Timeline = ({ data }) => {
           Projects Glossary
         </h2>
         <p className="text-gray-600 text-sm md:text-base max-w-2xl">
-          We've worked with more than 50+ customers across the country. 
+          We've worked with more than 50+ customers across the country.
           Below are some of our selected projects.
         </p>
       </div>
@@ -72,7 +67,7 @@ export const Timeline = ({ data }) => {
         {/* Timeline Line */}
         <div
           style={{ height: height + "px" }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] 
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px]
             bg-gradient-to-b from-transparent via-gray-200 to-transparent"
         >
           <motion.div
@@ -80,7 +75,7 @@ export const Timeline = ({ data }) => {
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t 
+            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t
               from-amber-400 via-amber-500 to-transparent from-[0%] via-[10%] rounded-full"
           />
         </div>
