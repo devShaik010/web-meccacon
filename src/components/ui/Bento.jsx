@@ -1,6 +1,6 @@
 import { cn } from "@utils/cn";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion } from "motion/react";
+import { useInView } from "motion/react";
 import { useRef, useState, useEffect } from "react";
 
 // Add animation variants for text

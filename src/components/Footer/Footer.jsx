@@ -2,7 +2,7 @@ import { Box, Container, Grid, Typography, IconButton } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import logo from "@assets/images/logo.png"; // Add this import at the top
 
 const Footer = () => {

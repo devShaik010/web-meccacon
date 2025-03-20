@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import logo from "@assets/images/logo.png";
 
 const pages = ["Home", "Projects", "Contact", "About"];
